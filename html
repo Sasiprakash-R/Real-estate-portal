@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prime Properties</title>
+  <link rel="stylesheet" href="style/real-estate-portal.css">
+</head>
+<body>
+  <div class="container login-page">
+    <h1>Login to Prime Properties</h1>
+  
+    <div class="login-buttons">
+      <button onclick="showLoginForm('buyer')">Buyer Login</button>
+      <button onclick="showLoginForm('seller')">Seller Login</button>
+    </div>
+  
+    <div id="buyerLogin" class="login-form hidden">
+      <h2>Buyer Login</h2>
+      <input type="text" id="buyerUsername" placeholder="Buyer Username">
+      <input type="password" id="buyerPassword" placeholder="Password">
+      <button onclick="login('buyer')">Login as Buyer</button>
+    </div>
+  
+    <div id="sellerLogin" class="login-form hidden">
+      <h2>Seller Login</h2>
+      <input type="text" id="sellerUsername" placeholder="Seller Username">
+      <input type="password" id="sellerPassword" placeholder="Password">
+      <button onclick="login('seller')">Login as Seller</button>
+    </div>
+  </div>
+<header>
+  <div class="container">
+    <h1>Prime Properties</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#" onclick="showSection('home')">Home</a></li>
+        <li><a href="#" onclick="showSection('buyer')">Buyer</a></li>
+        <li><a href="#" onclick="showSection('seller')">Seller</a></li>
+        <li><a href="#" onclick="showSection('agent')">Agent</a></li>
+        <li><a href="#" onclick="showSection('cart')">Cart</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section id="home" class="section">
+    <h2>Welcome to Real Estate Portal</h2>
+    <p>Find your dream home or sell your property easily with trusted agents.</p>
+
+    <div class="home-gallery">
+      <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=800&q=60" alt="House">
+      <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?auto=format&fit=crop&w=800&q=60" alt="Modern Apartment">
+      <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=800&q=60" alt="Luxury Condo">
+    </div>
+  </section>
+
+  <!-- Buyer Section -->
+<section id="buyer" class="section hidden">
+  <h2>Buyer Dashboard</h2>
+  <div class="search-box">
+    <!-- Search by Location -->
+    <input type="text" id="searchLocation" placeholder="Search by location..." onkeyup="searchProperties()">
+    
+    <!-- Filter by BHK -->
+    <select id="searchType" onchange="searchProperties()">
+      <option value="">Select BHK</option>
+      <option value="2BHK">2BHK</option>
+      <option value="3BHK">3BHK</option>
+      <option value="4BHK">4BHK</option>
+    </select>
+    
+    <!-- Filter by Facing -->
+    <select id="searchFacing" onchange="searchProperties()">
+      <option value="">Select Facing</option>
+      <option value="East">East</option>
+      <option value="West">West</option>
+      <option value="North">North</option>
+      <option value="South">South</option>
+    </select>
+    
+    <!-- Search Button -->
+    <button onclick="searchProperties()">Search</button>
+  </div>
+  <div id="propertyList" class="property-list">
+    <!-- Properties will be dynamically displayed here -->
+  </div>
+</section>
+
+
+  <!-- Cart Section -->
+  <section id="cart" class="section hidden">
+    <h2>Your Cart</h2>
+    <div id="cartList" class="property-list"></div>
+  </section>
+
+  <section id="seller" class="section hidden">
+    <h2>Seller Dashboard</h2>
+    <form id="propertyForm" onsubmit="addProperty(event)" class="property-form">
+      <input type="text" id="title" placeholder="Property Title" required>
+      <input type="text" id="location" placeholder="Location" required>
+      <input type="number" id="price" placeholder="Price (in USD)" required>
+      <input type="text" id="type" placeholder="Type (2BHK, 3BHK, etc.)" required>
+      <input type="text" id="facing" placeholder="Facing (North, South, etc.)" required>
+      <button type="submit">Add Property</button>
+    </form>
+  </section>
+  
+  
+
+  <!-- Agent Section -->
+  <section id="agent" class="section hidden">
+    <h2>Agent Dashboard</h2>
+    <p>Agent functionalities coming soon!</p>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2025 Prime Properties. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="javaScript/real-estate-portal.js"></script>
+</body>
+</html>
